@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Timeline</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="g">
+
+    <!-- SETUP -->
+    <div id="setup">
+      <h1>Timeline</h1>
+      <p>Drag each card to its place in history, then tap <em>Place it</em> to confirm.</p>
+      <div class="cg">
+        <button class="cb" data-n="6">6 cards</button>
+        <button class="cb" data-n="8">8 cards</button>
+        <button class="cb" data-n="10">10 cards</button>
+      </div>
+      <button id="sbtn" disabled>Start game</button>
+    </div>
+
+    <!-- PLAY -->
+    <div id="play">
+      <div class="topbar">
+        <div class="sc">Score: <strong id="sv">0</strong></div>
+        <div class="pg" id="pg"></div>
+      </div>
+      <div class="lbl">Drag this card onto the timeline below</div>
+      <div id="hand-area">
+        <div class="curr-card" id="curr-card">
+          <div class="ce" id="ce"></div>
+          <div>
+            <div class="ctt" id="ctt"></div>
+            <div class="cd" id="cd"></div>
+          </div>
+        </div>
+        <div class="drag-hint" id="drag-hint">grab and drag down ↓</div>
+      </div>
+      <div class="lbl">Timeline</div>
+      <div id="tl"></div>
+      <div class="fb" id="fb"></div>
+      <div class="acts">
+        <button id="nbtn">Next card →</button>
+      </div>
+    </div>
+
+    <!-- END -->
+    <div id="end">
+      <h2>Round complete!</h2>
+      <div class="fs" id="fs"></div>
+      <div class="fd">cards placed correctly</div>
+      <div class="fv" id="fv"></div>
+      <button id="abtn">Play again</button>
+    </div>
+
+  </div>
+
+  <!-- Drag ghost -->
+  <div id="ghost">
+    <span class="ge" id="ghost-e"></span>&nbsp;<span class="gt" id="ghost-t"></span>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
