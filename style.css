@@ -1,4 +1,4 @@
-/* ─── Reset ─────────────────────────────────────────── */
+/* ─── Reset ──────────────────────────────────────────── */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -23,7 +23,7 @@ body {
   max-width: 600px;
 }
 
-/* ─── Setup screen ───────────────────────────────────── */
+/* ─── Setup ──────────────────────────────────────────── */
 #setup {
   text-align: center;
   padding: 4rem 1rem;
@@ -60,9 +60,7 @@ body {
   transition: border-color 0.15s;
 }
 
-.cb:hover {
-  border-color: #999;
-}
+.cb:hover { border-color: #999; }
 
 .cb.sel {
   border: 2px solid #185FA5;
@@ -82,15 +80,10 @@ body {
   transition: opacity 0.15s;
 }
 
-#sbtn:disabled {
-  opacity: 0.3;
-  cursor: default;
-}
+#sbtn:disabled { opacity: 0.3; cursor: default; }
 
 /* ─── Play screen ────────────────────────────────────── */
-#play {
-  display: none;
-}
+#play { display: none; }
 
 .topbar {
   display: flex;
@@ -99,21 +92,9 @@ body {
   margin-bottom: 1.25rem;
 }
 
-.sc {
-  font-size: 14px;
-  color: #888;
-}
-
-.sc strong {
-  font-size: 18px;
-  font-weight: 500;
-  color: #1a1a1a;
-}
-
-.pg {
-  font-size: 13px;
-  color: #aaa;
-}
+.sc { font-size: 14px; color: #888; }
+.sc strong { font-size: 18px; font-weight: 500; color: #1a1a1a; }
+.pg { font-size: 13px; color: #aaa; }
 
 .lbl {
   font-size: 11px;
@@ -123,10 +104,8 @@ body {
   margin-bottom: 8px;
 }
 
-/* ─── Current card (hand) ────────────────────────────── */
-#hand-area {
-  margin-bottom: 1.25rem;
-}
+/* ─── Hand card ──────────────────────────────────────── */
+#hand-area { margin-bottom: 1.25rem; }
 
 .curr-card {
   background: #fff;
@@ -139,39 +118,11 @@ body {
   cursor: grab;
   width: 100%;
   box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-  transition: box-shadow 0.15s;
 }
 
-.curr-card:active {
-  cursor: grabbing;
-}
-
-.curr-card.faded {
-  opacity: 0.3;
-  cursor: default;
-  pointer-events: none;
-}
-
-.curr-card.dragging-src {
-  opacity: 0.15;
-}
-
-.ce {
-  font-size: 22px;
-  flex-shrink: 0;
-}
-
-.ctt {
-  font-size: 15px;
-  font-weight: 500;
-  color: #1a1a1a;
-  margin-bottom: 3px;
-}
-
-.cd {
-  font-size: 13px;
-  color: #888;
-}
+.curr-card:active { cursor: grabbing; }
+.curr-card.faded { opacity: 0.3; cursor: default; pointer-events: none; }
+.curr-card.dragging-src { opacity: 0.15; }
 
 .drag-hint {
   font-size: 12px;
@@ -180,22 +131,20 @@ body {
   text-align: center;
 }
 
-/* ─── Timeline ───────────────────────────────────────── */
-#tl {
-  display: flex;
-  flex-direction: column;
-}
+.ce { font-size: 22px; flex-shrink: 0; }
+.ctt { font-size: 15px; font-weight: 500; color: #1a1a1a; margin-bottom: 3px; }
+.cd { font-size: 13px; color: #888; }
 
-/* Gap slot — hidden by default, expands on hover/snap */
+/* ─── Timeline ───────────────────────────────────────── */
+#tl { display: flex; flex-direction: column; }
+
 .gap-slot {
   overflow: hidden;
   max-height: 0;
-  transition: max-height 0.18s ease;
+  transition: max-height 0.15s ease;
 }
 
-.gap-slot.open {
-  max-height: 52px;
-}
+.gap-slot.open { max-height: 52px; }
 
 .drop-zone {
   height: 40px;
@@ -210,7 +159,7 @@ body {
   background: #EDF4FF;
 }
 
-/* Snapped preview card with inline Place It button */
+/* ─── Preview card (snapped, unconfirmed) ────────────── */
 .preview-card {
   background: #dbeeff;
   border: 1.5px solid #185FA5;
@@ -218,13 +167,18 @@ body {
   padding: 8px 8px 8px 13px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 9px;
   margin: 4px 0;
+  cursor: grab;
 }
 
+.preview-card:active { cursor: grabbing; }
+.preview-card.dragging-src { opacity: 0.15; }
+
 .preview-card .pe {
-  font-size: 16px;
+  font-size: 15px;
   flex-shrink: 0;
+  pointer-events: none;
 }
 
 .preview-card .pt {
@@ -235,6 +189,7 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  pointer-events: none;
 }
 
 .place-btn {
@@ -248,14 +203,11 @@ body {
   font-weight: 600;
   cursor: pointer;
   white-space: nowrap;
-  transition: background 0.15s;
 }
 
-.place-btn:hover {
-  background: #0C447C;
-}
+.place-btn:hover { background: #0C447C; }
 
-/* Placed cards */
+/* ─── Placed cards ───────────────────────────────────── */
 .pc {
   background: #fff;
   border: 1px solid #e8e8e8;
@@ -267,49 +219,20 @@ body {
   margin: 3px 0;
 }
 
-.pc.anc {
-  border-color: #ccc;
-}
+.pc.anc { border-color: #ccc; }
+.pc.ok  { border-color: #1D9E75; background: #E1F5EE; }
+.pc.bad { border-color: #E24B4A; background: #FCEBEB; }
 
-.pc.ok {
-  border-color: #1D9E75;
-  background: #E1F5EE;
-}
-
-.pc.bad {
-  border-color: #E24B4A;
-  background: #FCEBEB;
-}
-
-.pe2 {
-  font-size: 15px;
-  flex-shrink: 0;
-}
-
-.pt2 {
-  font-size: 13px;
-  color: #1a1a1a;
-  flex: 1;
-}
-
-.pc.ok .pt2 { color: #085041; }
+.pe2 { font-size: 15px; flex-shrink: 0; }
+.pt2 { font-size: 13px; color: #1a1a1a; flex: 1; }
+.pc.ok  .pt2 { color: #085041; }
 .pc.bad .pt2 { color: #791F1F; }
 
-.py2 {
-  font-size: 11px;
-  font-weight: 500;
-  color: #aaa;
-  margin-left: auto;
-  white-space: nowrap;
-}
-
-.pc.ok .py2 { color: #0F6E56; }
+.py2 { font-size: 11px; font-weight: 500; color: #aaa; margin-left: auto; white-space: nowrap; }
+.pc.ok  .py2 { color: #0F6E56; }
 .pc.bad .py2 { color: #A32D2D; }
 
-.pico {
-  font-size: 13px;
-  margin-left: 6px;
-}
+.pico { font-size: 13px; margin-left: 6px; }
 
 /* ─── Feedback bar ───────────────────────────────────── */
 .fb {
@@ -320,71 +243,17 @@ body {
   display: none;
 }
 
-.fb.ok {
-  background: #E1F5EE;
-  color: #085041;
-  border: 1px solid #5DCAA5;
-}
-
-.fb.bad {
-  background: #FCEBEB;
-  color: #791F1F;
-  border: 1px solid #F09595;
-}
-
-/* ─── Actions ────────────────────────────────────────── */
-.acts {
-  margin-top: 1.25rem;
-}
-
-#nbtn {
-  padding: 10px 26px;
-  background: #1a1a1a;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  display: none;
-  transition: opacity 0.15s;
-}
-
-#nbtn:hover {
-  opacity: 0.8;
-}
+.fb.ok  { background: #E1F5EE; color: #085041; border: 1px solid #5DCAA5; }
+.fb.bad { background: #FCEBEB; color: #791F1F; border: 1px solid #F09595; }
 
 /* ─── End screen ─────────────────────────────────────── */
-#end {
-  display: none;
-  text-align: center;
-  padding: 4rem 1rem;
-}
+#end { display: none; text-align: center; padding: 4rem 1rem; }
 
-#end h2 {
-  font-size: 24px;
-  font-weight: 500;
-  margin-bottom: 8px;
-}
+#end h2 { font-size: 24px; font-weight: 500; margin-bottom: 8px; }
 
-.fs {
-  font-size: 64px;
-  font-weight: 500;
-  letter-spacing: -2px;
-  margin: 1rem 0 4px;
-}
-
-.fd {
-  font-size: 14px;
-  color: #888;
-  margin-bottom: 8px;
-}
-
-.fv {
-  font-size: 16px;
-  color: #555;
-  margin-bottom: 2.5rem;
-}
+.fs { font-size: 64px; font-weight: 500; letter-spacing: -2px; margin: 1rem 0 4px; }
+.fd { font-size: 14px; color: #888; margin-bottom: 8px; }
+.fv { font-size: 16px; color: #555; margin-bottom: 2.5rem; }
 
 #abtn {
   padding: 12px 38px;
@@ -398,9 +267,7 @@ body {
   transition: opacity 0.15s;
 }
 
-#abtn:hover {
-  opacity: 0.8;
-}
+#abtn:hover { opacity: 0.8; }
 
 /* ─── Drag ghost ─────────────────────────────────────── */
 #ghost {
