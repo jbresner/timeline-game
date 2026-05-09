@@ -1,49 +1,5 @@
-// ─── Deck ─────────────────────────────────────────────────────────────────────
-
-const DECK = [
-  { t: "Printing press invented",             y: 1440,  d: "Gutenberg's movable type press",           e: "📖" },
-  { t: "Moon landing",                         y: 1969,  d: "Apollo 11 lands on the lunar surface",     e: "🌕" },
-  { t: "World Wide Web created",               y: 1991,  d: "Tim Berners-Lee launches the web",          e: "🌐" },
-  { t: "French Revolution begins",             y: 1789,  d: "Storming of the Bastille",                  e: "⚔️" },
-  { t: "Penicillin discovered",                y: 1928,  d: "Alexander Fleming's breakthrough",          e: "🔬" },
-  { t: "First iPhone released",                y: 2007,  d: "Apple launches the smartphone era",         e: "📱" },
-  { t: "Darwin's Origin of Species",           y: 1859,  d: "Theory of natural selection published",     e: "🦋" },
-  { t: "First transatlantic flight",           y: 1927,  d: "Lindbergh flies New York to Paris",         e: "✈️" },
-  { t: "DNA double helix discovered",          y: 1953,  d: "Watson and Crick's landmark paper",         e: "🧬" },
-  { t: "Shakespeare born",                     y: 1564,  d: "Arrives in Stratford-upon-Avon",            e: "🎭" },
-  { t: "Eiffel Tower opens",                   y: 1889,  d: "Paris gets its iconic iron tower",          e: "🗼" },
-  { t: "First steam locomotive",               y: 1804,  d: "Trevithick's engine runs on rails",         e: "🚂" },
-  { t: "Magna Carta signed",                   y: 1215,  d: "English barons limit royal power",          e: "📜" },
-  { t: "Columbus reaches the Americas",        y: 1492,  d: "Voyage changes world history",              e: "⛵" },
-  { t: "First email sent",                     y: 1971,  d: "Ray Tomlinson's network message",           e: "📧" },
-  { t: "Berlin Wall falls",                    y: 1989,  d: "Reunification of Germany begins",           e: "🧱" },
-  { t: "Marie Curie wins Nobel Prize",         y: 1903,  d: "First woman to win the Nobel Prize",        e: "⚗️" },
-  { t: "The Titanic sinks",                    y: 1912,  d: "Ocean liner strikes an iceberg",            e: "🚢" },
-  { t: "First modern Olympic Games",           y: 1896,  d: "Athens hosts the revived Games",            e: "🏅" },
-  { t: "Edison opens power station",           y: 1882,  d: "Pearl Street Station lights New York",      e: "💡" },
-  { t: "First human heart transplant",         y: 1967,  d: "Dr. Barnard operates in Cape Town",         e: "❤️" },
-  { t: "Google founded",                       y: 1998,  d: "Brin and Page launch the search engine",    e: "🔍" },
-  { t: "Wright Brothers first flight",         y: 1903,  d: "12 seconds of flight at Kitty Hawk",        e: "🛩️" },
-  { t: "Napoleon defeated at Waterloo",        y: 1815,  d: "The French Emperor's final battle",         e: "⚔️" },
-  { t: "Einstein's theory of relativity",      y: 1905,  d: "E=mc² changes physics forever",             e: "🧠" },
-  { t: "Women get the vote in the US",         y: 1920,  d: "19th Amendment ratified",                   e: "🗳️" },
-  { t: "Pyramids of Giza built",               y: -2560, d: "Ancient wonder constructed at Giza",        e: "🔺" },
-  { t: "First human in space",                 y: 1961,  d: "Yuri Gagarin orbits Earth",                 e: "🚀" },
-  { t: "Mount Everest first climbed",          y: 1953,  d: "Hillary and Tenzing reach the summit",      e: "🏔️" },
-  { t: "Netflix founded",                      y: 1997,  d: "DVD-by-mail startup launches",              e: "🎬" },
-  { t: "American Declaration of Independence", y: 1776,  d: "Thirteen colonies break from Britain",      e: "🦅" },
-  { t: "First antibiotic used clinically",     y: 1942,  d: "Penicillin saves soldiers in WWII",         e: "💊" },
-  { t: "Black Death peaks in Europe",          y: 1349,  d: "Plague kills one-third of Europe",          e: "☠️" },
-  { t: "Galileo confirms Earth orbits Sun",    y: 1610,  d: "Observations with the telescope",           e: "🔭" },
-  { t: "First BBC television broadcast",       y: 1936,  d: "BBC launches public TV service",            e: "📺" },
-  { t: "First computer bug found",             y: 1947,  d: "Grace Hopper finds a moth in a relay",      e: "🐛" },
-  { t: "Soviet Union collapses",               y: 1991,  d: "Cold War era ends officially",              e: "🗺️" },
-  { t: "Great Wall of China completed",        y: 1644,  d: "Final Ming dynasty sections finished",      e: "🏯" },
-  { t: "ENIAC computer built",                 y: 1945,  d: "First general-purpose electronic computer", e: "🖥️" },
-  { t: "Gutenberg Bible printed",              y: 1455,  d: "First major book printed in Europe",        e: "📚" },
-];
-
 // ─── State ────────────────────────────────────────────────────────────────────
+// DECK is loaded from data.js
 
 let N, hand, placed, ci, score, pendingGap, confirmed, dragging, hoverGap;
 let gapRects = [];
